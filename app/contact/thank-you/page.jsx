@@ -1,0 +1,3 @@
+import Link from 'next/link';import Nav from '../../../components/Nav';import Footer from '../../../components/Footer';
+export const metadata={title:'Message submitted',robots:{index:false,follow:false}};
+export default function ThankYou(){return <><Nav/><main className="container article legal"><h1>Thank you for contacting ATSNexa</h1><p>Your form was submitted to the delivery service. If the support mailbox has not yet been verified with FormSubmit, delivery may be pending. Please contact us directly at <a href="mailto:support@atsnexa.com">support@atsnexa.com</a> if needed.</p><p><Link href="/">Return to ATSNexa</Link></p></main><Footer/></>}

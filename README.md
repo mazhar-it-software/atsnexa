@@ -22,3 +22,8 @@ This is an **integration-ready codebase**, not a live or fully configured produc
 
 ## Local checks
 `npm install && npm test && npm run lint && npm run build && npm run dev`
+
+
+## Contact form delivery (FormSubmit)
+
+The /contact page posts to https://formsubmit.co/support@atsnexa.com. No mailbox password or API key is required in the repository. **First submission:** FormSubmit sends an activation email to support@atsnexa.com. Open Hostinger Webmail and click its verification link. Then submit a second test message and confirm receipt. The service may display CAPTCHA/verification. Submissions pass through a third party; see the Privacy Policy. For higher volume, replace with a server-side mail provider and rate limiting. Do not submit confidential documents.
