@@ -1,0 +1,1 @@
+import Account from '../../components/Account';export const metadata={title:'Account',robots:{index:false,follow:false}};export default function Page(){return <main className="container article"><h1>Your ATSNexa Account</h1><Account/></main>}
