@@ -15,7 +15,7 @@
     "react-dom": "^19.1.0",
     "@supabase/supabase-js": "^2.57.0",
     "pdf-parse": "1.1.1",
-    "mammoth": "1.9.1"
+    "mammoth": "1.11.0"
   },
   "engines": {
     "node": ">=20.9.0"
