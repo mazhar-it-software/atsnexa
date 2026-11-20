@@ -1,1 +1,23 @@
-{"name":"atsnexa","version":"0.2.0","private":true,"scripts":{"dev":"next dev","build":"next build","start":"next start","lint":"node scripts/check-seo.mjs","test":"node --test tests/*.test.mjs"},"dependencies":{"next":"^15.5.0","react":"^19.1.0","react-dom":"^19.1.0","@supabase/supabase-js":"^2.57.0"},"engines":{"node":">=20.9.0"}}
+{
+  "name": "atsnexa",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "node scripts/check-seo.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "next": "^15.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "@supabase/supabase-js": "^2.57.0",
+    "pdf-parse": "1.1.1",
+    "mammoth": "1.9.1"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

@@ -1,0 +1,27 @@
+ATSNexa combined update — CONTACT + RESUME UPLOAD
+
+IMPORTANT: Do not delete your existing repository. Merge this ZIP's contents into the repository ROOT (Documents/GitHub/atsnexa), replacing matching files. The ZIP contains an updated package.json with pdf-parse and mammoth dependencies. Do not put it inside an extra subfolder.
+
+INCLUDED
+- app/contact/page.jsx and ContactForm.jsx: native form, no CAPTCHA/redirect
+- app/api/contact/route.js: server-side Resend email delivery
+- components/Checker.jsx: PDF/DOCX/TXT upload or paste resume
+- app/api/extract-resume/route.js: text extraction
+- package.json: required dependencies
+
+EMAIL: NO MAILBOX PASSWORD NEEDED OR WANTED.
+1. Create account at https://resend.com . Add domain atsnexa.com and follow its DNS verification records in Hostinger DNS zone. Wait for domain Verified.
+2. In Resend create an API key. DO NOT paste it into chat, email, or GitHub.
+3. Hostinger > Websites > atsnexa.com > Environment variables:
+   RESEND_API_KEY = [paste secret from Resend dashboard]
+   CONTACT_FROM_EMAIL = ATSNexa <contact@atsnexa.com>
+   NEXT_PUBLIC_SITE_URL = https://atsnexa.com (keep existing)
+4. SAVE variables and redeploy after changes to ensure they load.
+5. On your PC, extract ZIP into Documents/GitHub/atsnexa, MERGING folders. GitHub Desktop > Changes > Commit to main > Push origin. Hostinger auto-deploys. Check deployment Completed.
+6. Test https://atsnexa.com/contact : send message and check support@atsnexa.com inbox. Test ATS checker with text PDF, DOCX, TXT and pasted text.
+
+IMPORTANT: Contact form returns an error until Resend is configured. For zero interruption, set up Resend and Hostinger variables BEFORE pushing this update. Never use your Hostinger mailbox password for this integration.
+
+PRIVACY POLICY: Update /privacy to accurately disclose Resend as email delivery processor; FormSubmit is no longer used for contact after deployment. Ensure this matches your actual handling of personal data.
+
+SECURITY: Honeypot, origin check and validation exist, but this does not include robust server-side rate limiting. Add rate limiting/WAF before high traffic. No visible CAPTCHA. Scanned PDFs need OCR; old .doc unsupported. Upload limit 5MB.
