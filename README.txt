@@ -1,14 +1,10 @@
-ATSNexa PostCSS security patch
+ATSNexa AI Career Studio reliability patch
 
-1. Copy package.json into the root of your existing ATSNexa GitHub repository, replacing the existing package.json. Do NOT delete other project files.
-2. In a terminal at the repository root run:
-   npm install
-3. This regenerates package-lock.json if npm uses it. Commit BOTH package.json and package-lock.json (if present) to GitHub. If a different lockfile is used, update that lockfile with its package manager instead.
-4. Run:
-   npm ls postcss
-   npm audit
-   npm run build
-5. GitHub Desktop: Commit to main, Push origin. Redeploy from Hostinger if necessary.
-6. Re-scan vulnerabilities in Hostinger after the new deployment.
+1. Open Supabase SQL Editor and run supabase-ai-quota.sql once. It creates atomic reservation and refund functions and adds a constraint. It preserves existing ai_usage and subscriptions rows.
+2. Copy lib/ai.js, app/api/ai/route.js, and components/AITools.jsx into the same paths of your existing ATSNexa GitHub project.
+3. Commit and push to main, then wait for Hostinger deployment.
+4. No new environment variables or npm dependencies required.
+5. Test one successful generation, then test a deliberately invalid OpenAI key only in a controlled staging environment (never change production secrets to test). Check ai_usage counts.
+6. PDF download uses the browser Print > Save as PDF. DOCX download uses a Word-compatible .doc file, not a genuine .docx; open in Word and Save As DOCX if needed.
 
-The npm overrides entry pins indirect PostCSS dependencies to 8.5.33. This package.json preserves the current package.json fetched from GitHub except for the new overrides block. It does not patch other vulnerabilities or automatically change deployed code.
+IMPORTANT: The daily quota is reserved before contacting OpenAI and refunded when the request fails. It counts a successful generation even if the browser disconnects after the provider completes. Reservation/refund is atomic; billing usage is not a precise accounting ledger. Avoid deploying without the SQL migration.
