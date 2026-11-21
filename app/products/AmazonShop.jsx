@@ -1,0 +1,15 @@
+'use client';
+import {useEffect,useState} from 'react';
+const CATEGORIES=[['office','Home office'],['interview','Interview gear'],['tech','Work technology'],['study','Career books'],['travel','Work travel']];
+const TAG='engr11112019-20';
+const QUERIES={office:'ergonomic office desk accessories',interview:'webcam microphone video interview',tech:'wireless keyboard USB C hub office',study:'career development books',travel:'laptop backpack work travel'};
+export default function AmazonShop(){
+ const [category,setCategory]=useState('office'),[data,setData]=useState(null),[loading,setLoading]=useState(true);
+ useEffect(()=>{let active=true;setLoading(true);setData(null);fetch('/api/amazon/products?category='+encodeURIComponent(category)).then(r=>r.json()).then(d=>{if(active)setData(d)}).catch(()=>{if(active)setData({mode:'fallback'})}).finally(()=>{if(active)setLoading(false)});return()=>{active=false}},[category]);
+ const fallback='https://www.amazon.com/s?k='+encodeURIComponent(QUERIES[category])+'&tag='+encodeURIComponent(TAG);
+ return <section className="container" style={{paddingBottom:64}}>
+ <div style={{display:'flex',gap:10,flexWrap:'wrap',margin:'16px 0 24px'}}>{CATEGORIES.map(([id,name])=><button key={id} type="button" onClick={()=>setCategory(id)} aria-pressed={category===id} className={'btn '+(category===id?'primary':'secondary')}>{name}</button>)}</div>
+ <p style={{fontSize:13,opacity:.8,marginBottom:20}}>As an Amazon Associate I earn from qualifying purchases. Product prices and availability are determined by Amazon and may change.</p>
+ {loading?<p role="status">Loading Amazon products…</p>:data?.mode==='live'&&data.products?.length?<><p role="status">Showing live Amazon product listings</p><div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(225px,1fr))',gap:18}}>{data.products.map(p=><article key={p.asin} style={{border:'1px solid #dce3ee',borderRadius:16,padding:18,background:'#fff',color:'#14213d',display:'flex',flexDirection:'column',gap:12}}>{p.image?<img src={p.image} alt={p.title} loading="lazy" referrerPolicy="no-referrer" style={{width:'100%',height:175,objectFit:'contain'}}/>:<div style={{height:175,display:'grid',placeItems:'center',background:'#f3f6fa'}}>Product image unavailable</div>}<h3 style={{fontSize:16,lineHeight:1.4,margin:0}}>{p.title}</h3>{p.price&&<p style={{fontWeight:700,margin:0}}>{p.price}</p>}<div style={{marginTop:'auto'}}><a className="btn primary" href={p.url} target="_blank" rel="sponsored noopener noreferrer">View on Amazon</a></div></article>)}</div></>:<div style={{border:'1px solid #dce3ee',borderRadius:20,padding:28,background:'#f8fafc',color:'#14213d'}}><h2 style={{marginTop:0}}>Explore {CATEGORIES.find(c=>c[0]===category)?.[1]} on Amazon</h2><p>Automatic listings are temporarily unavailable or API approval is still pending. You can browse matching Amazon products using our affiliate link.</p><a className="btn primary" href={fallback} target="_blank" rel="sponsored noopener noreferrer">Browse on Amazon →</a></div>}
+ </section>
+}
