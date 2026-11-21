@@ -1,28 +1,22 @@
-# ATSNexa V3 - FULL PAGE REPLACEMENT
+# ATSNexa PDF upload hotfix
 
-This package deliberately replaces the actual page components, rather than adding another optional stylesheet that may never load.
+## Replace one production file
+Copy `app/api/extract-resume/route.js` into the identical path in your existing ATSNexa repository. Do not replace any other production files.
 
-## Installation (GitHub Desktop)
-1. Extract this ZIP.
-2. Copy all files into the ROOT of your EXISTING ATSNexa repository, preserving the paths shown. Overwrite only files with the same paths. Do NOT delete other project files.
-3. IMPORTANT: app/layout.jsx imports three CSS files: globals.css (already in your repository), atsnexa-ui.css (already in your repository), and the NEW atsnexa-v3.css (provided here). Confirm both existing files still exist. If you do not have app/atsnexa-ui.css, remove that one import line.
-4. Commit changes to main, Push origin, wait for a successful Hostinger deployment. Confirm the latest deployed commit SHA matches your GitHub push.
-5. Hard-refresh with Ctrl+Shift+R, or test an incognito window.
-6. Check /, /ai-tools, /ats-resume-checker, /pricing, /sitemap.xml.
+## Add test
+Copy `tests/upload-and-matcher.test.mjs` to the existing tests directory.
 
-## What changed
-- Replaced home, AI Tools, ATS Checker, and Pricing pages with new dark navy hero and clean dashboard layouts.
-- New CSS is imported explicitly from app/layout.jsx so it is actually loaded.
-- Existing components/AITools.jsx, components/Checker.jsx and components/Subscribe.jsx remain unchanged: functionality, API calls, and account integration preserved.
-- Sitemap includes 12 public URLs. /account is intentionally excluded as a sign-in page; /products is included.
-- No Amazon API credentials, Resend variables or PayPal secrets are included.
+## Deploy
+In GitHub Desktop: Commit to main -> Push origin. Verify Hostinger deploys the latest commit. No changes to Hostinger environment variables are needed.
 
-## Sitemap
-12 is correct for the currently identified public indexable routes: /, /ats-resume-checker, /resume-builder, /resume-templates, /ai-tools, /pricing, /products, /guides, /about, /contact, /privacy, /terms. Dynamic guide article pages, if any, need separate sitemap handling.
+## Verify
+1. ATS Checker: upload a text-based PDF under 5 MB, check extracted text, paste job description (30+ characters), click Analyze.
+2. AI Studio: upload the same PDF, confirm text appears; generation additionally requires sign-in and configured AI provider.
+3. Upload a DOCX and a TXT. Test an image-only PDF: it should give an understandable OCR-related error.
+4. Run `npm test` locally to verify the keyword scoring assertions.
 
-## Troubleshooting unchanged design
-- GitHub Desktop must show changed files, including app/page.jsx and app/layout.jsx.
-- Push origin (commit alone is not enough).
-- Check Hostinger deployment is from the newest commit.
-- Check the page HTML has class="v3" on main; if not, old deployment is being served.
-- Check browser DevTools Network for atsnexa-v3 CSS bundled into a Next.js CSS chunk; a CSS 404 or missing import indicates a deployment issue.
+## Technical diagnosis
+pdf-parse@1.1.1's package entry point executes a fixture test outside NODE_ENV=test. The direct internal parser import avoids that entry point. No dependency upgrades required.
+
+## Limitations
+This is a targeted fix, not a verified end-to-end audit of all website features. The keyword alignment score is not a real ATS pass probability. PDFs that are scans/images still require OCR. The server has not been tested against your private deployment here.
