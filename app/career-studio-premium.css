@@ -1,0 +1,65 @@
+/* ATSNexa premium redesign — scoped to AI Studio and ATS Checker. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+.nex-page.nex-premium{font-family:'DM Sans',system-ui,-apple-system,sans-serif;color:#14223b;background:#f5f7fc}
+.nex-premium h1,.nex-premium h2,.nex-premium h3,.nex-premium button{font-family:'Manrope','DM Sans',sans-serif}
+.nex-premium .nex-hero{background:radial-gradient(ellipse at 85% 20%,#1b3779 0%,transparent 39%),radial-gradient(ellipse at 10% 90%,#273b80 0%,transparent 38%),linear-gradient(130deg,#101a35,#152650 60%,#1c2250);border:0;color:#fff}
+.nex-premium .nex-hero:after{border-color:#ffffff14;box-shadow:0 0 0 65px #ffffff07,0 0 0 125px #ffffff04}
+.nex-premium .nex-hero-inner{text-align:left;padding-top:82px;padding-bottom:115px;max-width:1200px}
+.nex-premium .nex-hero h1{color:#fff;margin:0 0 22px;max-width:810px;font-weight:800;font-size:clamp(40px,5.3vw,72px);letter-spacing:-.065em;line-height:1.12}
+.nex-premium .nex-hero h1 span{background:linear-gradient(100deg,#7bd5ff,#aaa7ff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.nex-premium .nex-hero p{color:#c3d1e9;margin:0 0 24px;max-width:640px;font-size:17px;line-height:1.7}
+.nex-premium .nex-kicker{color:#7ed9ff;font-weight:800;letter-spacing:.14em;font-size:11px}
+.nex-premium .nex-hero-actions{justify-content:flex-start;margin:28px 0 23px}
+.nex-premium .nex-hero .btn{padding:15px 24px;border-radius:12px;font-weight:800;box-shadow:none;text-decoration:none}
+.nex-premium .nex-hero .btn.primary{background:#7bceff;color:#122340;border:1px solid #7bceff}
+.nex-premium .nex-hero .btn.secondary{background:#ffffff10;color:white;border:1px solid #ffffff45}
+.nex-premium .nex-hero-foot{color:#bed2ed;font-size:12px}
+.nex-premium .nex-features{max-width:1200px;gap:15px;margin-top:-40px}
+.nex-premium .nex-feature{border:1px solid #e7ebf3;border-radius:18px;padding:25px;box-shadow:0 15px 38px #0d285016;transition:transform .2s,box-shadow .2s}
+.nex-premium .nex-feature:hover{transform:translateY(-4px);box-shadow:0 22px 40px #0d285025}
+.nex-premium .nex-feature-symbol{background:#eaf2ff;color:#3157ba;border-radius:12px;font-size:24px}
+.nex-premium .nex-feature h3{font-size:16px;font-weight:800;line-height:1.4;color:#152442}
+.nex-premium .nex-feature p{font-size:13px;color:#65758c}
+.nex-premium .nex-workspace{max-width:1200px;padding-top:90px}
+.nex-premium .nex-section-heading h2{font-size:clamp(28px,3.3vw,43px);letter-spacing:-.045em;color:#162443;font-weight:800}
+.nex-premium .nex-section-heading .nex-kicker{color:#4767d7}
+.nex-premium .nex-section-heading p{font-size:15px;line-height:1.7}
+.nex-premium .nex-studio{border:1px solid #e4e9f2;box-shadow:0 20px 55px #12274812;border-radius:22px;padding:24px;background:#fff}
+.nex-premium .nex-task-grid{gap:14px;margin-bottom:23px}
+.nex-premium .nex-task{background:#f7f9fd;border:1px solid #e0e6f0;border-radius:14px;padding:20px;min-height:126px;cursor:pointer;transition:all .2s;position:relative}
+.nex-premium .nex-task:hover{border-color:#9eb7e8;background:#f0f5ff;transform:translateY(-2px)}
+.nex-premium .nex-task.active{background:#eaf2ff;border-color:#3868ce;box-shadow:0 0 0 2px #3868ce20}
+.nex-premium .nex-task.active:after{content:'✓';position:absolute;right:14px;top:12px;color:#2f60c6;font-weight:900}
+.nex-premium .nex-task-icon{background:#e5edfc;width:37px;height:37px;border-radius:10px;display:grid;place-items:center;font-size:22px;color:#315ac1}
+.nex-premium .nex-task strong{font-size:14px;color:#172844;font-weight:800}
+.nex-premium .nex-task small{font-size:12px;color:#687991}
+.nex-premium .nex-studio-columns{gap:22px;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+.nex-premium .nex-editor,.nex-premium .nex-output{padding:28px;border:1px solid #e4eaf2;border-radius:16px;background:white}
+.nex-premium .nex-output{background:#f8faff}
+.nex-premium .nex-step{background:#e9f1ff;color:#2c5dbb;border-radius:9px;padding:10px 13px}
+.nex-premium .nex-panel-title h3{font-weight:800;color:#14233d}
+.nex-premium .nex-panel-title p{color:#718199}
+.nex-premium .nex-label{font-size:13px;color:#233652;font-weight:800;margin-top:21px}
+.nex-premium .nex-label textarea,.nex-premium .tool-card textarea{font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.65;border:1px solid #dce4f0;border-radius:12px;background:#fff;color:#182b49;padding:15px;box-shadow:0 2px 4px #16294705;transition:border-color .2s,box-shadow .2s}
+.nex-premium textarea:focus{border-color:#4678e3!important;outline:0!important;box-shadow:0 0 0 4px #4678e31c!important}
+.nex-premium .nex-upload{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border:1px dashed #7899d9;border-radius:10px;color:#3159ac;background:#f0f5ff;font-weight:800;cursor:pointer}
+.nex-premium .nex-generate,.nex-premium .tool-card .btn.primary{background:#2459c7;color:white;border:1px solid #2459c7;border-radius:12px;padding:15px 24px;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 7px 17px #2459c72b;transition:background .2s,transform .2s}
+.nex-premium .nex-generate:hover:not(:disabled),.nex-premium .tool-card .btn.primary:hover:not(:disabled){background:#17449f;transform:translateY(-1px)}
+.nex-premium .nex-generate:disabled,.nex-premium button:disabled{cursor:not-allowed;opacity:.6}
+.nex-premium .nex-empty{padding:65px 12px}
+.nex-premium .nex-empty-icon{color:#4775db}
+.nex-premium .nex-output-text{font-size:14px;line-height:1.8;color:#1c2d49}
+.nex-premium .nex-output-actions .btn{border-radius:10px;padding:12px 18px;font-weight:800}
+.nex-premium .tool-card{background:white;border:1px solid #e2e8f2;border-radius:22px;padding:32px;box-shadow:0 20px 50px #12274810}
+.nex-premium .tool-card .form-grid{gap:26px}
+.nex-premium .tool-card label{font-size:13px;font-weight:800;color:#233652}
+.nex-premium .tool-card input[type=file]{border:1px dashed #9cb1d8;background:#f6f9ff;padding:17px;border-radius:12px;font-family:'DM Sans',sans-serif}
+.nex-premium .tool-card .form-actions{border-top:1px solid #e8edf5;margin-top:24px;padding-top:22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nex-premium .tool-card .form-actions p{font-size:12px;line-height:1.65;color:#6e7d94;max-width:600px}
+.nex-premium .tool-card .result{border-top:1px solid #e8edf5;margin-top:28px;padding-top:30px}
+.nex-premium .tool-card .result-number{color:#2459c7;font-family:'Manrope',sans-serif;font-weight:800}
+.nex-premium .tool-card .chips span{border-radius:100px;padding:7px 12px}
+.nex-premium .nex-bottom{max-width:850px;padding:20px 0 85px}
+.nex-premium .nex-bottom h2{font-size:clamp(24px,3vw,34px);font-weight:800}
+@media(max-width:900px){.nex-premium .nex-studio-columns{grid-template-columns:1fr}.nex-premium .nex-hero-inner{padding-top:65px;padding-bottom:100px}.nex-premium .nex-task-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.nex-premium .nex-hero-inner{padding-top:52px;padding-bottom:85px}.nex-premium .nex-features{grid-template-columns:repeat(2,minmax(0,1fr))}.nex-premium .nex-studio{padding:12px}.nex-premium .nex-editor,.nex-premium .nex-output,.nex-premium .tool-card{padding:18px}.nex-premium .nex-task{min-height:100px;padding:13px}.nex-premium .tool-card .form-actions{align-items:stretch;flex-direction:column}.nex-premium .tool-card .btn.primary{width:100%;text-align:center}}
