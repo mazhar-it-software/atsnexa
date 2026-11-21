@@ -1,24 +1,25 @@
-ATSNexa Amazon Creators API — live catalog + affiliate fallback
+ATSNexa UI refresh — GitHub Desktop installation
 
-FILES TO COMMIT to your existing GitHub main branch:
-1. app/api/amazon/products/route.js (NEW)
-2. app/products/AmazonShop.jsx (REPLACE)
-3. app/products/page.jsx (REPLACE or ADD if missing)
+Copy the folders/files into the ROOT of your existing ATSNexa project, preserving paths. Do not delete the project or overwrite other files.
 
-Your existing Hostinger environment variables:
-AMAZON_CREATORS_CREDENTIAL_ID = CSV Credential Id
-AMAZON_CREATORS_SECRET = CSV Secret
-AMAZON_ASSOCIATE_TAG = engr11112019-20
-AMAZON_MARKETPLACE = www.amazon.com
-AMAZON_CREATORS_APPLICATION_ID = CSV Application Id (retained, not needed for token exchange)
+REPLACE:
+components/Nav.jsx
+components/AITools.jsx
+app/ai-tools/page.jsx
+app/ats-resume-checker/page.jsx
+app/pricing/page.jsx
+app/account/page.jsx
+app/products/page.jsx
 
-After committing, let Hostinger redeploy. Visit https://atsnexa.com/products.
-To diagnose: open https://atsnexa.com/api/amazon/products?category=office
-- mode=live means real product listings returned.
-- mode=fallback means no live catalog access yet, and affiliate search links remain available.
-The public endpoint intentionally does not expose credentials or raw Amazon errors.
-Do not upload CSV or keys to GitHub.
+NEW FILE:
+app/atsnexa-ui.css
 
-The API calls use Amazon Creators API v3.1 OAuth and SearchItems, not the deprecated PA-API 5 signing method. It caches tokens and product responses in the running server process. In multi-instance deployments each instance may maintain its own cache. The site makes no claim that Amazon access is approved until a real request succeeds.
+EDIT (do not replace) app/layout.jsx:
+Add the following import next to the existing globals.css import:
+import './atsnexa-ui.css';
 
-If Amazon reports a SearchItems validation issue, review the API documentation for your locale and current supported resource list.
+IMPORTANT: Keep the existing components/Checker.jsx, components/Account.jsx, components/Subscribe.jsx, API routes, environment variables, and existing app/globals.css. This package preserves existing AI endpoint tasks and does not activate PayPal by itself.
+
+Commit and Push origin in GitHub Desktop. Check Hostinger latest deployment, and manually deploy only if automatic deployment does not start. Hard-refresh browser with Ctrl+Shift+R.
+
+Amazon: this update adds Career Shop to navigation and improves the products landing page. It does not change Amazon API eligibility. If /api/amazon/products returns mode:fallback, live Amazon products/images/prices are not available yet; the existing AmazonShop.jsx fallback will still link to tagged Amazon search results.
