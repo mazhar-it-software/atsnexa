@@ -1,10 +1,1 @@
-ATSNexa 16 resume templates update
-
-Replace these three files in your GitHub repository mazhar-it-software/atsnexa on branch main:
-app/resume-templates/page.jsx
-components/Builder.jsx
-components/TemplateStyles.css (new file)
-
-Hostinger should automatically redeploy on push. Check deployment status and test both /resume-templates and /resume-builder?template=modern.
-
-No changes to contact form, Resend, or AdSense. These are 16 selectable styling variations of the same single-column resume layout, not 16 radically different page structures.
+ATSNexa 75 product catalog update: 15 per category, 3 rows of 5 on wide desktop. Copy the app/products files and public/shop-products images into your existing GitHub Desktop project. Keep the existing CSS import in app/layout.jsx: import './atsnexa-shop-pro.css';. Replace app/atsnexa-shop-pro.css with this version. Commit and push main. These are curated search-result picks from supplied Amazon PDFs. Buy Now opens tagged Amazon search results, not a verified direct product page. Amazon screenshot imagery is not necessarily licensed for republication; verify Amazon Associates image permissions before publishing. No prices or ratings are shown.
